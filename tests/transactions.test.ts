@@ -11,13 +11,14 @@ const tronScanClient = new TronScanClient({
   apiKey: API_KEY!
 });
 
-describe('Tokens', () => {
+describe('Transactions and Transfers', () => {
   test(
-    'Get token list',
+    'Get a list of transactions',
     async () => {
-      const response = await tronScanClient.getTokenList({
+      const response = await tronScanClient.getTransactionsList({
         address: ADDRESS!
       });
+
       expect(response?.data?.length).toBe(1);
     },
     TEST_TIMEOUT

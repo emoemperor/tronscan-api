@@ -41,7 +41,7 @@ export class TronScanClient {
 
   public async getTransactionsList(params: TronScanGetTransactionsListOptions): Promise<TronScanTransactionsListResponse> {
     const response = await this.transport.get<TronScanTransactionsListResponse>('transaction', {
-      params
+      ...params
     });
     return response.data;
   }
