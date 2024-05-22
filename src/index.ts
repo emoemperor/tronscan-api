@@ -6,6 +6,11 @@ import {
   TronScanTokenSort,
   TronScanTokenShow,
   TronScanTokenVerifier,
+  // Options
+  TronScanPaginationOptions,
+  TronScanGetTransactionsListOptions,
+  TronScanGetTrxTrc10TransferListOptions,
+  TronScanGetTrc20Trc721TransferListOptions,
   // Tx types
   TronScanTxSimple,
   TronScanTxNative,
@@ -27,6 +32,11 @@ export {
   TronScanTokenSort,
   TronScanTokenShow,
   TronScanTokenVerifier,
+  // Options
+  TronScanPaginationOptions,
+  TronScanGetTransactionsListOptions,
+  TronScanGetTrxTrc10TransferListOptions,
+  TronScanGetTrc20Trc721TransferListOptions,
   // Tx types
   TronScanTxSimple,
   TronScanTxNative,
