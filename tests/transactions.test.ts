@@ -23,4 +23,22 @@ describe('Transactions and Transfers', () => {
     },
     TEST_TIMEOUT
   );
+
+  test('Get trx&trc10 transfer list', async () => {
+    const response = await tronScanClient.getTrxTrc10TransferList({
+      address: ADDRESS!,
+      start_timestamp: 1715855574000,
+      end_timestamp: 1715855574000
+    });
+
+    expect(response?.data?.length).toBe(1);
+  });
+
+  test('Get trc20&721 transfers list', async () => {
+    const response = await tronScanClient.getTrc20Trc721TransferList({
+      relatedAddress: ADDRESS!
+    });
+
+    expect(response?.token_transfers?.length).toBe(0);
+  });
 });

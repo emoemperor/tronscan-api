@@ -655,16 +655,6 @@ export interface TronScanGetTrc20Trc721TransferListOptions extends TronScanPagin
    * @example 'TMwFHYXLJaRUPeW6421aqXL4ZEzPRFGkGT'
    */
   relatedAddress?: string;
-  /**
-   * @description Sender's address
-   * @example 'TMwFHYXLJaRUPeW6421aqXL4ZEzPRFGkGT'
-   */
-  fromAddress?: string;
-  /**
-   * @description Recipient's address
-   * @example 'TMwFHYXLJaRUPeW6421aqXL4ZEzPRFGkGT'
-   */
-  toAddress?: string;
 }
 
 export interface TronScanTrc20Trc721TransfersResponse extends TronScanTransfersCommonResponse {
