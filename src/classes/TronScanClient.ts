@@ -4,11 +4,17 @@ import { AxiosTransport, Transport } from './Transport';
 import {
   TronScanGetTokenListOptions,
   TronScanGetTransactionsListOptions,
+  TronScanGetTrc10TransfersOptions,
+  TronScanGetTrc20TransfersOptions,
   TronScanGetTrc20Trc721TransferListOptions,
+  TronScanGetTrxTransfersOptions,
   TronScanGetTrxTrc10TransferListOptions,
   TronScanTokenListResponse,
   TronScanTransactionsListResponse,
+  TronScanTrc10TransfersResponse,
+  TronScanTrc20TransfersResponse,
   TronScanTrc20Trc721TransfersResponse,
+  TronScanTrxTransfersResponse,
   TronScanTrxTrc10TransfersResponse
 } from '../types/tronscan';
 
@@ -74,6 +80,30 @@ export class TronScanClient {
       show,
       sortBy,
       sortType
+    });
+    return response.data;
+  }
+
+  public async getTrxTransfers(params: TronScanGetTrxTransfersOptions): Promise<TronScanTrxTransfersResponse> {
+    const response = await this.transport.get<TronScanTrxTransfersResponse>('trx/transfer', {
+      ...params,
+      filterTokenValue: 0
+    });
+    return response.data;
+  }
+
+  public async getTrc10Transfers(params: TronScanGetTrc10TransfersOptions): Promise<TronScanTrc10TransfersResponse> {
+    const response = await this.transport.get<TronScanTrc10TransfersResponse>('trc10/transfer', {
+      ...params,
+      filterTokenValue: 0
+    });
+    return response.data;
+  }
+
+  public async getTrc20Transfers(params: TronScanGetTrc20TransfersOptions): Promise<TronScanTrc20TransfersResponse> {
+    const response = await this.transport.get<TronScanTrc20TransfersResponse>('filter/trc20/transfers', {
+      ...params,
+      filterTokenValue: 0
     });
     return response.data;
   }

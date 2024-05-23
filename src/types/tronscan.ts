@@ -13,12 +13,57 @@
 // 3 Все переводы trx, trc10
 // https://apilist.tronscanapi.com/api/new/transfer?sort=-timestamp&count=true&limit=20&start=0&address=TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7&filterTokenValue=1
 // https://shastapi.tronscan.org/api/transfer?sort=-timestamp&count=true&limit=20&start=0&address=TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w&filterTokenValue=1
-//
+
+// txs
+// https://apilist.tronscanapi.com/api/transaction?sort=-timestamp&count=true&limit=20&start=0&address=TLPh66vQ2QMb64rG3WEBV5qnAhefh2kcdw
+//    https://nileapi.tronscan.org/api/transaction?sort=-timestamp&count=true&limit=20&start=0&address=TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w
+//   https://shastapi.tronscan.org/api/transaction?sort=-timestamp&count=true&limit=20&start=0&address=TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w
+
+// ----------------------------------------------------------------------------------------------------
+
+// trx
+//  https://apilist.tronscanapi.com/api/trx/transfer?sort=-timestamp&count=true&limit=20&start=0&address=TLPh66vQ2QMb64rG3WEBV5qnAhefh2kcdw&filterTokenValue=0
+// https://nileapi.tronscan.org/api/new/trx/transfer?sort=-timestamp&count=true&limit=20&start=0&address=TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w&filterTokenValue=0
+//    https://shastapi.tronscan.org/api/trx/transfer?sort=-timestamp&count=true&limit=20&start=0&address=TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w&filterTokenValue=0
+
+// sort +
+// limit +
+// start +
+// address +
+// filterTokenValue=0 +
+// start_timestamp +
+// end_timestamp +
+
+// trc10
+//  https://apilist.tronscanapi.com/api/trc10/transfer?sort=-timestamp&count=true&limit=20&start=0&address=TCqSJ3kMp79VGmGtKCbA94s6UExSgQmQpz&filterTokenValue=0
+// https://nileapi.tronscan.org/api/new/trc10/transfer?sort=-timestamp&count=true&limit=20&start=0&address=TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w&filterTokenValue=0
+//    https://shastapi.tronscan.org/api/trc10/transfer?sort=-timestamp&count=true&limit=20&start=0&address=TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w&filterTokenValue=0
+
+// sort + -timestamp
+// limit +
+// start +
+// address +
+// filterTokenValue=0 +
+// start_timestamp +
+// end_timestamp +
+
+// trc20
+//  https://apilist.tronscanapi.com/api/filter/trc20/transfers?limit=20&start=0&sort=-timestamp&count=true&filterTokenValue=0&relatedAddress=TLPh66vQ2QMb64rG3WEBV5qnAhefh2kcdw
+// https://nileapi.tronscan.org/api/new/filter/trc20/transfers?limit=20&start=0&sort=-timestamp&count=true&filterTokenValue=0&relatedAddress=TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w
+//    https://shastapi.tronscan.org/api/filter/trc20/transfers?limit=20&start=0&sort=-timestamp&count=true&filterTokenValue=0&relatedAddress=TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w
+
+// relatedAddress +
+// limit + max 20
+// start +
+// filterTokenValue=0 +
+// start_timestamp +
+// end_timestamp +
 
 // ----------------------------------------------------------------------------------------------------
 
 export enum TronScanSort {
-  TimestampDesc = '-timestamp'
+  TimestampDesc = '-timestamp',
+  TimestampAsc = '+timestamp'
 }
 
 export enum TronScanOrder {
@@ -678,3 +723,39 @@ export interface TronScanGetTokenListOptions extends TronScanPaginationOptions {
 export interface TronScanTokenListResponse extends TronScanTransfersCommonResponse {
   data: TronScanTokenBalanceInfo[];
 }
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetTrxTransfersOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
+  address: string;
+  sort: TronScanSort;
+}
+
+export interface TronScanTrxTransfersResponse extends TronScanTransfersCommonResponse {
+  data: TronScanTxSimple[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetTrc10TransfersOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
+  address: string;
+  sort: TronScanSort;
+  // filterTokenValue=0 +
+}
+
+export interface TronScanTrc10TransfersResponse extends TronScanTransfersCommonResponse {
+  data: TronScanTxSimple[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetTrc20TransfersOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
+  relatedAddress: string;
+  // filterTokenValue=0 +
+}
+
+export interface TronScanTrc20TransfersResponse extends TronScanTransfersCommonResponse {
+  token_transfers: TronScanTxToken[];
+}
+
+// ----------------------------------------------------------------------------------------------------
