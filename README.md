@@ -23,11 +23,20 @@ const tronScanClient = new TronScanClient({
 });
 ```
 
-## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)
+## [Account section](https://docs.tronscan.org/api-endpoints/contract#get-contract-detail-information)
 
 ```javascript
 const ADDRESS = 'tron_address';
 
+const account = await tronScanClient.getAccountDetailInformation({
+  address: ADDRESS
+});
+console.log(account);
+```
+
+## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)
+
+```javascript
 // Get token list:
 const response = await tronScanClient.getTokenList({
   address: ADDRESS

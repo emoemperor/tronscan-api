@@ -26,6 +26,8 @@
 // https://nileapi.tronscan.org/api/new/trx/transfer?sort=-timestamp&count=true&limit=20&start=0&address=TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w&filterTokenValue=0
 //    https://shastapi.tronscan.org/api/trx/transfer?sort=-timestamp&count=true&limit=20&start=0&address=TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w&filterTokenValue=0
 
+// nileapi - redirect
+
 // sort +
 // limit +
 // start +
@@ -36,8 +38,10 @@
 
 // trc10
 //  https://apilist.tronscanapi.com/api/trc10/transfer?sort=-timestamp&count=true&limit=20&start=0&address=TCqSJ3kMp79VGmGtKCbA94s6UExSgQmQpz&filterTokenValue=0
-// https://nileapi.tronscan.org/api/new/trc10/transfer?sort=-timestamp&count=true&limit=20&start=0&address=TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w&filterTokenValue=0
+// https://nileapi.tronscan.org/api/new/trc10/transfer?sort=-timestamp&count=true&limit=20&start=0&address=TWXmq3nt8q7Y6vFrsAVSaBQQr8hkJFRU56&filterTokenValue=0
 //    https://shastapi.tronscan.org/api/trc10/transfer?sort=-timestamp&count=true&limit=20&start=0&address=TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w&filterTokenValue=0
+
+// nileapi - redirect
 
 // sort + -timestamp
 // limit +
@@ -53,6 +57,8 @@
 // https://nileapi.tronscan.org/api/new/filter/trc20/transfers?limit=20&start=0&sort=-timestamp&count=true&filterTokenValue=0&relatedAddress=TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w
 //    https://shastapi.tronscan.org/api/filter/trc20/transfers?limit=20&start=0&sort=-timestamp&count=true&filterTokenValue=0&relatedAddress=TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w
 
+// nileapi - redirect
+
 // sort -
 // relatedAddress +
 // limit + max 20
@@ -62,6 +68,220 @@
 // end_timestamp +
 
 // ----------------------------------------------------------------------------------------------------
+
+// token assets overview
+// https://apilist.tronscanapi.com/api/account/token_asset_overview?address=TLPh66vQ2QMb64rG3WEBV5qnAhefh2kcdw
+
+// ----------------------------------------------------------------------------------------------------
+
+// Get account info
+// https://apilist.tronscanapi.com/api/accountv2?address=TLPh66vQ2QMb64rG3WEBV5qnAhefh2kcdw
+//    https://nileapi.tronscan.org/api/accountv2?address=TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w
+//   https://shastapi.tronscan.org/api/accountv2?address=TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanFrozen {
+  /**
+   * @description Total
+   * @example 0
+   */
+  total: number;
+  /**
+   * @description Balances
+   * @example []
+   */
+  balances: any[];
+}
+
+export interface TronScanPermissionKey {
+  /**
+   * @description Address
+   * @example 'TLPh66vQ2QMb64rG3WEBV5qnAhefh2kcdw'
+   */
+  address: string;
+  /**
+   * @description Weight
+   * @example 1
+   */
+  weight: number;
+}
+
+export interface TronScanPermission {
+  /**
+   * @description Keys list
+   */
+  keys: TronScanPermissionKey[];
+  /**
+   * @description Threshold
+   * @example 1
+   */
+  threshold: number;
+  /**
+   * @description Permission name
+   * @example 'owner'
+   */
+  permission_name: string;
+  /**
+   * @description Permission id
+   * @example 2
+   */
+  id?: number;
+  /**
+   * @description Operations
+   * @example '7fff1fc0033ec30f000000000000000000000000000000000000000000000000'
+   */
+  operations?: string;
+  /**
+   * @description Permission type
+   * @example 'Active'
+   */
+  type?: string;
+}
+
+export interface TronScanRepresentative {
+  /**
+   * @description Last withdraw time
+   * @example 0
+   */
+  lastWithDrawTime: number;
+  /**
+   * @description Allowance
+   * @example 0
+   */
+  allowance: number;
+  /**
+   * @description Enabled
+   * @example false
+   */
+  enabled: boolean;
+  /**
+   * @description Url
+   * @example ''
+   */
+  url: string;
+}
+
+export interface TronScanBandwidth {
+  /**
+   * @description Remaining energy
+   * @example 0
+   */
+  energyRemaining: number;
+  /**
+   * @description Total energy limit
+   * @example 90000000000
+   */
+  totalEnergyLimit: number;
+  /**
+   * @description Total energy weight
+   * @example 7202050690
+   */
+  totalEnergyWeight: number;
+  /**
+   * @description Net used
+   * @example 0
+   */
+  netUsed: number;
+  /**
+   * @description Storage limit
+   * @example 0
+   */
+  storageLimit: number;
+  /**
+   * @description Storage percentage
+   * @example 0
+   */
+  storagePercentage: number;
+  /**
+   * @description Assets
+   * @example {}
+   */
+  assets: {};
+  /**
+   * @description Net percentage
+   * @example 0
+   */
+  netPercentage: number;
+  /**
+   * @description Storage used
+   * @example 0
+   */
+  storageUsed: number;
+  /**
+   * @description Storage remaining
+   * @example 0
+   */
+  storageRemaining: number;
+  /**
+   * @description Free net limit
+   * @example 600
+   */
+  freeNetLimit: number;
+  /**
+   * @description Energy used
+   * @example 0
+   */
+  energyUsed: number;
+  /**
+   * @description Free net remaining
+   * @example 600
+   */
+  freeNetRemaining: number;
+  /**
+   * @description Net limit
+   * @example 0
+   */
+  netLimit: number;
+  /**
+   * @description Net remaining
+   * @example 0
+   */
+  netRemaining: number;
+  /**
+   * @description Energy limit
+   * @example 0
+   */
+  energyLimit: number;
+  /**
+   * @description Free net used
+   * @example 0
+   */
+  freeNetUsed: number;
+  /**
+   * @description Total net weight
+   * @example 38771757741
+   */
+  totalNetWeight: number;
+  /**
+   * @description Free net percentage
+   * @example 0
+   */
+  freeNetPercentage: number;
+  /**
+   * @description Energy percentage
+   * @example 0
+   */
+  energyPercentage: number;
+  /**
+   * @description Total net limit
+   * @example 43200000000
+   */
+  totalNetLimit: number;
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export enum TronScanTokenShow {
+  OnlyWhitelist = '0',
+  All = '1',
+  ExcludeBlacklist = '2'
+}
+
+export enum TronScanTokenVerifier {
+  All = 'all',
+  WithoutAuto = ''
+}
 
 export enum TronScanSort {
   TimestampDesc = '-timestamp',
@@ -88,17 +308,6 @@ export enum TronScanTokenSort {
   Gain = 'gain',
   Volume24hInTrx = 'volume24hInTrx',
   HolderCount = 'holderCount'
-}
-
-export enum TronScanTokenShow {
-  OnlyWhitelist = '0',
-  All = '1',
-  ExcludeBlacklist = '2'
-}
-
-export enum TronScanTokenVerifier {
-  All = 'all',
-  WithoutAuto = ''
 }
 
 export interface TronScanPaginationOptions {
@@ -344,16 +553,16 @@ interface TronScanTokenBalanceInfo extends TronScanTokenInfoCommon {
    * @description Quantity
    * @example '12.744104'
    */
-  quantity: string;
+  quantity?: string;
   /**
    * @description Token level
    */
-  level: string;
+  level?: string;
   /**
    * @description Token price in USD
    * @example 0.123082017644144
    */
-  tokenPriceInUsd: number;
+  tokenPriceInUsd?: number;
   /**
    * @description Token price in trx
    * @example 1
@@ -363,7 +572,7 @@ interface TronScanTokenBalanceInfo extends TronScanTokenInfoCommon {
    * @description Amount in USD
    * @example 1.56857
    */
-  amountInUsd: number;
+  amountInUsd?: number;
   /**
    * @description Balance in sun
    * @example "12744104"
@@ -383,7 +592,7 @@ interface TronScanTokenBalanceInfo extends TronScanTokenInfoCommon {
    * @description Project info
    * @example ''
    */
-  project: string;
+  project?: string;
 }
 
 interface TronScanTriggerInfo {
@@ -760,6 +969,278 @@ export interface TronScanGetTrc20TransfersOptions extends TronScanPaginationOpti
 
 export interface TronScanTrc20TransfersResponse extends TronScanTransfersCommonResponse {
   token_transfers: TronScanTxToken[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetAccountDetailInformationOptions {
+  /**
+   * @description Account address
+   * @example 'TSTVYwFDp7SBfZk7Hrz3tucwQVASyJdwC7'
+   */
+  address: string;
+}
+
+export interface TronScanAccountDetailInformationResponse {
+  /**
+   * @description Total frozen v2
+   * @example 0
+   */
+  totalFrozenV2: number;
+  /**
+   * @description Out tx count
+   * @example 1
+   */
+  transactions_out: number;
+  /**
+   * @description Frozen for energy v2
+   * @example 0
+   */
+  frozenForEnergyV2: number;
+  /**
+   * @description Reward number
+   * @example 0
+   */
+  rewardNum: number;
+  /**
+   * @description Delegated frozen v2 balance for bandwidth
+   * @example 0
+   */
+  delegatedFrozenV2BalanceForBandwidth: number;
+  /**
+   * @description Owner permission
+   */
+  ownerPermission: TronScanPermission;
+  /**
+   * @description Red tag
+   * @example ''
+   */
+  redTag: string;
+  /**
+   * @description Delegated frozen for energy
+   * @example 0
+   */
+  delegateFrozenForEnergy: number;
+  /**
+   * @description Balance in sun
+   * @example 12744104
+   */
+  balance: 12744104;
+  /**
+   * @description Frozen band width v2
+   * @example 0
+   */
+  frozenForBandWidthV2: number;
+  /**
+   * @description Can withdraw amount v2
+   * @example 0
+   */
+  canWithdrawAmountV2: number;
+  /**
+   * @description Delegated
+   * @example {}
+   */
+  delegated: {};
+  /**
+   * @description Transactions in count
+   * @example 5
+   */
+  transactions_in: number;
+  /**
+   * @description Total transactions count (native maybe)
+   * @example 3
+   */
+  totalTransactionCount: number;
+  /**
+   * @description Representative
+   */
+  representative: TronScanRepresentative;
+  /**
+   * @description Announcement
+   * @example ''
+   */
+  announcement: string;
+  /**
+   * @description Allow exchange
+   * @example []
+   */
+  allowExchange: any[];
+  /**
+   * @description Account type
+   * @example 0
+   */
+  accountType: number;
+  /**
+   * @description Exchanges
+   * @example []
+   */
+  exchanges: any[];
+  /**
+   * @description Frozen
+   */
+  frozen: TronScanFrozen;
+  /**
+   * @description Total transfers count (in and out)
+   * @example 6
+   */
+  transactions: number;
+  /**
+   * @description Delegated frozen v2 balance for energy
+   * @example 0
+   */
+  delegatedFrozenV2BalanceForEnergy: number;
+  /**
+   * @description Name
+   * @example ''
+   */
+  name: string;
+  /**
+   * @description Frozen for energy
+   * @example 0
+   */
+  frozenForEnergy: number;
+  /**
+   * @description Energy cost
+   * @example 12.4964407880334
+   */
+  energyCost: number;
+  /**
+   * @description Active permissions list
+   */
+  activePermissions: TronScanPermission[];
+  /**
+   * @description Acquired delegated frozen v2 balance for bandwidth
+   * @example 0
+   */
+  acquiredDelegatedFrozenV2BalanceForBandwidth: number;
+  /**
+   * @description Net cost
+   * @example 1.11421309032748
+   */
+  netCost: number;
+  /**
+   * @description Acquired delegate frozen for bandwidth
+   * @example 0
+   */
+  acquiredDelegateFrozenForBandWidth: number;
+  /**
+   * @description Grey tag
+   * @example ''
+   */
+  greyTag: string;
+  /**
+   * @description Public tag
+   * @example ''
+   */
+  publicTag: string;
+  /**
+   * @description Account tokens (with native)
+   */
+  withPriceTokens: TronScanTokenBalanceInfo[];
+  /**
+   * @description Unfreeze v2
+   * @example 0
+   */
+  unfreezeV2: number;
+  /**
+   * @description Feedback risk
+   * @example false
+   */
+  feedbackRisk: boolean;
+  /**
+   * @description Vote total
+   * @example 0
+   */
+  voteTotal: number;
+  /**
+   * @description Total frozen
+   * @example 0
+   */
+  totalFrozen: number;
+  /**
+   * @description Latest operation time
+   * @example 1715695737000
+   */
+  latest_operation_time: number;
+  /**
+   * @description Frozen for bandwidth
+   * @example 0
+   */
+  frozenForBandWidth: number;
+  /**
+   * @description Reward
+   * @example 1
+   */
+  reward: number;
+  /**
+   * @description Address tag logo
+   * @example ''
+   */
+  addressTagLogo: string;
+  /**
+   * @description Account address
+   * @example 'TLPh66vQ2QMb64rG3WEBV5qnAhefh2kcdw'
+   */
+  address: string;
+  /**
+   * @description Frozen supply
+   * @example []
+   */
+  frozen_supply: any[];
+  /**
+   * @description Account bandwidth
+   */
+  bandwidth: TronScanBandwidth;
+  /**
+   * @description Account creation date in milliseconds
+   * @example 1710332382000
+   */
+  date_created: number;
+  /**
+   * @description Acquired delegated frozen v2 balance for energy
+   * @example 0
+   */
+  acquiredDelegatedFrozenV2BalanceForEnergy: number;
+  /**
+   * @description Account resources
+   */
+  accountResource: {
+    /**
+     * @description Account resource
+     * @example {}
+     */
+    frozen_balance_for_energy: {};
+  };
+  /**
+   * @description Blue tag
+   * @example ''
+   */
+  blueTag: string;
+  /**
+   * @description Witness
+   * @example 0
+   */
+  witness: number;
+  /**
+   * @description Freezing
+   * @example 0
+   */
+  freezing: number;
+  /**
+   * @description Delegate frozen for bandwidth
+   * @example 0
+   */
+  delegateFrozenForBandWidth: number;
+  /**
+   * @description Account activation status
+   * @example true
+   */
+  activated: boolean;
+  /**
+   * @description Acquired delegate frozen for energy
+   * @example 0
+   */
+  acquiredDelegateFrozenForEnergy: number;
 }
 
 // ----------------------------------------------------------------------------------------------------
