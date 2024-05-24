@@ -9,8 +9,8 @@ At the moment, the number of available methods is limited to those indicated in 
 
 To support this project, you can send crypto to
 
-- **0x3F2f0098310e654040f7794AB7E44Ac48E0eaF7B**;
-- **TLPh66vQ2QMb64rG3WEBV5qnAhefh2kcdw**.
+- **0x3F2f0098310e654040f7794AB7E44Ac48E0eaF7B**
+- **TLPh66vQ2QMb64rG3WEBV5qnAhefh2kcdw**
 
 ## Create client instance
 
