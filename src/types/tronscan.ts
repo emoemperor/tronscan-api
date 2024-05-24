@@ -46,12 +46,14 @@
 // filterTokenValue=0 +
 // start_timestamp +
 // end_timestamp +
+// tokens + token id
 
 // trc20
 //  https://apilist.tronscanapi.com/api/filter/trc20/transfers?limit=20&start=0&sort=-timestamp&count=true&filterTokenValue=0&relatedAddress=TLPh66vQ2QMb64rG3WEBV5qnAhefh2kcdw
 // https://nileapi.tronscan.org/api/new/filter/trc20/transfers?limit=20&start=0&sort=-timestamp&count=true&filterTokenValue=0&relatedAddress=TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w
 //    https://shastapi.tronscan.org/api/filter/trc20/transfers?limit=20&start=0&sort=-timestamp&count=true&filterTokenValue=0&relatedAddress=TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w
 
+// sort -
 // relatedAddress +
 // limit + max 20
 // start +
@@ -739,6 +741,7 @@ export interface TronScanTrxTransfersResponse extends TronScanTransfersCommonRes
 
 export interface TronScanGetTrc10TransfersOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
   address: string;
+  tokens?: string;
   sort: TronScanSort;
   // filterTokenValue=0 +
 }
@@ -751,6 +754,7 @@ export interface TronScanTrc10TransfersResponse extends TronScanTransfersCommonR
 
 export interface TronScanGetTrc20TransfersOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
   relatedAddress: string;
+  contract_address?: string;
   // filterTokenValue=0 +
 }
 
