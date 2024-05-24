@@ -730,7 +730,7 @@ export interface TronScanTokenListResponse extends TronScanTransfersCommonRespon
 
 export interface TronScanGetTrxTransfersOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
   address: string;
-  sort: TronScanSort;
+  sort?: TronScanSort;
 }
 
 export interface TronScanTrxTransfersResponse extends TronScanTransfersCommonResponse {
@@ -742,7 +742,7 @@ export interface TronScanTrxTransfersResponse extends TronScanTransfersCommonRes
 export interface TronScanGetTrc10TransfersOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
   address: string;
   tokens?: string;
-  sort: TronScanSort;
+  sort?: TronScanSort;
   // filterTokenValue=0 +
 }
 
