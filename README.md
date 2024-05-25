@@ -9,8 +9,8 @@ At the moment, the number of available methods is limited to those indicated in 
 
 To support this project, you can send crypto to
 
-- **0x3F2f0098310e654040f7794AB7E44Ac48E0eaF7B**;
-- **TLPh66vQ2QMb64rG3WEBV5qnAhefh2kcdw**.
+- **0x3F2f0098310e654040f7794AB7E44Ac48E0eaF7B**
+- **TLPh66vQ2QMb64rG3WEBV5qnAhefh2kcdw**
 
 ## Create client instance
 
@@ -23,11 +23,20 @@ const tronScanClient = new TronScanClient({
 });
 ```
 
-## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)
+## [Account section](https://docs.tronscan.org/api-endpoints/contract#get-contract-detail-information)
 
 ```javascript
 const ADDRESS = 'tron_address';
 
+const account = await tronScanClient.getAccountDetailInformation({
+  address: ADDRESS
+});
+console.log(account);
+```
+
+## [Tokens section](https://docs.tronscan.org/api-endpoints/tokens)
+
+```javascript
 // Get token list:
 const response = await tronScanClient.getTokenList({
   address: ADDRESS
@@ -78,6 +87,13 @@ const response = await tronScanClient.getTrc20Transfers({
   contract_address: 'contract_address'
 });
 const transfers = response.data;
+```
+
+## [Block section](https://docs.tronscan.org/api-endpoints/block)
+
+```javascript
+const response = await tronScanClient.getBlocks();
+const blocks = response.data;
 ```
 
 ## Supported networks table

@@ -16,7 +16,9 @@ describe('Transactions and Transfers', () => {
     'Get a list of transactions',
     async () => {
       const response = await tronScanClient.getTransactionsList({
-        address: ADDRESS!
+        address: ADDRESS!,
+        start_timestamp: 1716539547000,
+        end_timestamp: 1716539547000
       });
 
       expect(response?.data?.length).toBe(1);

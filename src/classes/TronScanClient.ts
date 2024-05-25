@@ -2,6 +2,10 @@ import { AxiosRequestConfig } from 'axios';
 
 import { AxiosTransport, Transport } from './Transport';
 import {
+  TronScanAccountDetailInformationResponse,
+  TronScanBlockListResponse,
+  TronScanGetAccountDetailInformationOptions,
+  TronScanGetBlocksListOptions,
   TronScanGetTokenListOptions,
   TronScanGetTransactionsListOptions,
   TronScanGetTrc10TransfersOptions,
@@ -45,10 +49,13 @@ export class TronScanClient {
     this.transport = new AxiosTransport(url, apiKey, axiosOptions);
   }
 
+  public async getAccountDetailInformation(params: TronScanGetAccountDetailInformationOptions) {
+    const response = await this.transport.get<TronScanAccountDetailInformationResponse>('accountv2', params);
+    return response.data;
+  }
+
   public async getTransactionsList(params: TronScanGetTransactionsListOptions): Promise<TronScanTransactionsListResponse> {
-    const response = await this.transport.get<TronScanTransactionsListResponse>('transaction', {
-      ...params
-    });
+    const response = await this.transport.get<TronScanTransactionsListResponse>('transaction', params);
     return response.data;
   }
 
@@ -105,6 +112,11 @@ export class TronScanClient {
       ...params,
       filterTokenValue: 0
     });
+    return response.data;
+  }
+
+  public async getBlocks(params?: TronScanGetBlocksListOptions): Promise<TronScanBlockListResponse> {
+    const response = await this.transport.get<TronScanBlockListResponse>('block', params);
     return response.data;
   }
 }
