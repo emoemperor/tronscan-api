@@ -15,6 +15,7 @@ import {
   TronScanGetTrc10TransfersOptions,
   TronScanGetTrc20TransfersOptions,
   TronScanGetAccountDetailInformationOptions,
+  TronScanGetBlocksListOptions,
   // Tx types
   TronScanTxSimple,
   TronScanTxNative,
@@ -27,7 +28,8 @@ import {
   TronScanTrxTransfersResponse,
   TronScanTrc10TransfersResponse,
   TronScanTrc20TransfersResponse,
-  TronScanAccountDetailInformationResponse
+  TronScanAccountDetailInformationResponse,
+  TronScanBlockListResponse
 } from './types/tronscan';
 
 import { TronScanClient } from './classes/TronScanClient';
@@ -49,6 +51,7 @@ export {
   TronScanGetTrc10TransfersOptions,
   TronScanGetTrc20TransfersOptions,
   TronScanGetAccountDetailInformationOptions,
+  TronScanGetBlocksListOptions,
   // Tx types
   TronScanTxSimple,
   TronScanTxNative,
@@ -62,6 +65,7 @@ export {
   TronScanTrc10TransfersResponse,
   TronScanTrc20TransfersResponse,
   TronScanAccountDetailInformationResponse,
+  TronScanBlockListResponse,
   // Client
   TronScanClient
 };

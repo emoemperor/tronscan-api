@@ -89,6 +89,13 @@ const response = await tronScanClient.getTrc20Transfers({
 const transfers = response.data;
 ```
 
+## [Block section](https://docs.tronscan.org/api-endpoints/block)
+
+```javascript
+const response = await tronScanClient.getBlocks();
+const blocks = response.data;
+```
+
 ## Supported networks table
 
 **You must use the API key!!!**  
