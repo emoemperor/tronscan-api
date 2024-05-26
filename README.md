@@ -3,11 +3,11 @@
 # Tronscan client
 
 Client for receiving blockchain data through block explorers (in particular, tronscan).  
-At the moment, the number of available methods is limited to those indicated in the examples below:
+At the moment, the number of available methods is limited to those indicated in the examples below.
 
 ## Donation
 
-To support this project, you can send crypto to
+To support this project, you can send crypto to:
 
 - **0x3F2f0098310e654040f7794AB7E44Ac48E0eaF7B**
 - **TLPh66vQ2QMb64rG3WEBV5qnAhefh2kcdw**
@@ -23,7 +23,7 @@ const tronScanClient = new TronScanClient({
 });
 ```
 
-## [Account section](https://docs.tronscan.org/api-endpoints/contract#get-contract-detail-information)
+## [Account section](https://docs.tronscan.org/api-endpoints/account#get-account-detail-information)
 
 ```javascript
 const ADDRESS = 'tron_address';

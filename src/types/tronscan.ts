@@ -549,6 +549,16 @@ interface TronScanContractData {
    * @example 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'
    */
   contract_address?: string;
+
+  /**
+   * @description Asset name (trc10 token id)
+   * @example '1005023'
+   */
+  asset_name?: string;
+  /**
+   * @description Token info
+   */
+  tokenInfo?: TronScanTokenInfo;
 }
 
 interface TronScanCost {
