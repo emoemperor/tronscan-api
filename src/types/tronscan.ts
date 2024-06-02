@@ -392,7 +392,9 @@ export enum TronScanTokenVerifier {
 
 export enum TronScanSort {
   TimestampDesc = '-timestamp',
-  TimestampAsc = '+timestamp'
+  TimestampAsc = '+timestamp',
+  BalanceDesc = '-balance',
+  BalanceAsc = '+balance'
 }
 
 export enum TronScanOrder {
@@ -972,6 +974,90 @@ export interface TronScanTxToken extends TronScanTxCore {
    * @example false
    */
   toAddressIsContract: boolean;
+}
+
+export interface TronScanAccountShortInfo {
+  /**
+   * @description Account address
+   * @example 'TP5L7DNf36B8coYU852X59yCDaaz2jBWAS'
+   */
+  address: string;
+  /**
+   * @description Address tag logo
+   * @example ''
+   */
+  addressTagLogo: string;
+  /**
+   * @description Account balance in sun
+   * @example 43465907950
+   */
+  balance: number;
+  /**
+   * @description Account power
+   * @example 0
+   */
+  power: number;
+  /**
+   * @description Total account transaction count
+   * @example 37
+   */
+  totalTransactionCount: number;
+  /**
+   * @description Latest operation time
+   * @example 1668184674000
+   */
+  latestOperationTime: number;
+  /**
+   * @description Update time
+   * @example 1668184674000
+   */
+  updateTime: number;
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetAccountListOptions extends TronScanPaginationOptions {
+  sort?: TronScanSort;
+}
+
+export interface TronScanAccountListResponse {
+  /**
+   * @description Account number in all system
+   * @example 233_885_735
+   */
+  account_number: number;
+  /**
+   * @description Last 24h account change
+   * @example 220815
+   */
+  last_24h_account_change: number;
+  /**
+   * @description Total
+   * @example 10000
+   */
+  total: number;
+  /**
+   * @description Account balance info list
+   */
+  data: TronScanAccountShortInfo[];
+
+  contractMap: {
+    [key: string]: boolean;
+  };
+  /**
+   * @description Range total
+   * @example 233885735
+   */
+  rangeTotal: number;
+  /**
+   * @description Contract info
+   */
+  contractInfo?: {
+    [key: string]: TronScanContractInfo;
+  };
+  normalAddressInfo?: {
+    [key: string]: TronScanRiskInfo;
+  };
 }
 
 // ----------------------------------------------------------------------------------------------------

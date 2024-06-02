@@ -13,6 +13,15 @@ const tronScanClient = new TronScanClient({
 
 describe('Account', () => {
   test(
+    'Get account list',
+    async () => {
+      const response = await tronScanClient.getAccountList();
+      expect(response.data.length).toBeGreaterThan(0);
+    },
+    TEST_TIMEOUT
+  );
+
+  test(
     'Get account detail information',
     async () => {
       const response = await tronScanClient.getAccountDetailInformation({
