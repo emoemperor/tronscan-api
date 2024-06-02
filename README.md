@@ -28,6 +28,9 @@ const tronScanClient = new TronScanClient({
 ```javascript
 const ADDRESS = 'tron_address';
 
+const response = await tronScanClient.getAccountList();
+console.log(response.data);
+
 const account = await tronScanClient.getAccountDetailInformation({
   address: ADDRESS
 });
