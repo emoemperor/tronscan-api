@@ -61,10 +61,14 @@ export class TronScanClient {
     return response.data;
   }
 
+  // Transactions and transfers:
+
   public async getTransactionsList(params: TronScanGetTransactionsListOptions): Promise<TronScanTransactionsListResponse> {
     const response = await this.transport.get<TronScanTransactionsListResponse>('transaction', params);
     return response.data;
   }
+
+  // public async getTransactionDetailByHash() {}
 
   public async getTrxTrc10TransferList(
     params: TronScanGetTrxTrc10TransferListOptions

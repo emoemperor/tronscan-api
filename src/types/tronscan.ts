@@ -87,6 +87,41 @@
 //   https://shastapi.tronscan.org/api/block
 
 // ----------------------------------------------------------------------------------------------------
+// Get tx info
+// https://apilist.tronscanapi.com/api/transaction-info?hash=aa205d68dbcba1c1b220379834fd567a89813c3283abe03262173a83e41e1d2a
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanConfirmNodeItem {
+  /**
+   * @description Node address
+   * @example 'TTW663tQYJTTCtHh6DWKAfexRhPMf2DxQ1'
+   */
+  address: string;
+  /**
+   * @description Node name
+   * @example 'TRONALLIANCE'
+   */
+  name: string;
+  /**
+   * @description Block id
+   * @example 62280528
+   */
+  block: number;
+  /**
+   * @description Node site url
+   * @example 'http://tronalliance.org'
+   */
+  url: string;
+}
+
+export interface TronScanContractMap {
+  [key: string]: boolean;
+}
+
+export interface TronScanAddressTag {
+  [key: string]: string;
+}
 
 export interface TronScanFrozen {
   /**
@@ -501,9 +536,7 @@ interface TronScanTransfersCommonResponse {
   /**
    * @description Key - address, value - is contract or not
    */
-  contractMap?: {
-    [key: string]: boolean;
-  };
+  contractMap?: TronScanContractMap;
   /**
    * @description Contract info. Key - address, value - contract info
    */
@@ -604,6 +637,26 @@ interface TronScanCost {
    * @example 345
    */
   net_usage: number;
+
+  /**
+   * @description Net fee cost
+   * @example 1000
+   */
+  net_fee_cost?: number;
+  /**
+   * @description Date created
+   * @example 1717485309
+   */
+  date_created?: number;
+  /**
+   * @description Energy fee cost
+   * @example 420
+   */
+  energy_fee_cost?: number;
+
+  multi_sign_fee?: 0;
+  memoFee?: 0;
+  account_create_fee?: 0;
 }
 
 interface TronScanTokenInfoCommon {
@@ -724,7 +777,7 @@ interface TronScanTriggerInfo {
    * @description Data
    * @example 'a9059cbb00000000000000000000004170cc6193c14df8c49f6fe0b7e2a92af871a36f140000000000000000000000000000000000000000000000000000000002faf080'
    */
-  data: string;
+  data?: string;
   /**
    * @description Parameters
    * @example { _value: '50000000'; _to: 'TLFdXCKeKk8bnr3FQKmFU9aBo2LjQh5SCG'; }
@@ -739,7 +792,7 @@ interface TronScanTriggerInfo {
    * @description Method name
    * @example 'transfer'
    */
-  methodName: string;
+  methodName?: string;
   /**
    * @description Contract address
    * @example 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'
@@ -1041,9 +1094,7 @@ export interface TronScanAccountListResponse {
    */
   data: TronScanAccountShortInfo[];
 
-  contractMap: {
-    [key: string]: boolean;
-  };
+  contractMap: TronScanContractMap;
   /**
    * @description Range total
    * @example 233885735
@@ -1457,6 +1508,141 @@ export interface TronScanGetBlocksListOptions extends TronScanPaginationOptions,
 
 export interface TronScanBlockListResponse extends TronScanTransfersCommonResponse {
   data: TronScanBlockSimple[];
+}
+
+// ----------------------------------------------------------------------------------------------------
+
+export interface TronScanGetTxDetailByHashOptions {
+  /**
+   * @description Transaction hash
+   * @example '3194a00c5cf427a931b908453588b2ca3f661dafa3860b76a6362d08b3b08583'
+   */
+  hash: string;
+}
+
+export interface TronScanTxDetailByHashResponse {
+  /**
+   * @description Contract return string (TronScanTxCore)
+   * @example 'SUCCESS'
+   */
+  contractRet: string;
+  /**
+   * @description Data string
+   * @example ''
+   */
+  data: string;
+  /**
+   * @description Contract type
+   * @example 1
+   */
+  contractType: number;
+  /**
+   * @description Revert status
+   * @example false
+   */
+  revert: boolean;
+  /**
+   * @description Tx confirmations count
+   * @example 1
+   */
+  confirmations: number;
+  /**
+   * @description Trigger info
+   */
+  trigger_info?: TronScanTriggerInfo;
+  /**
+   * @description To address
+   * @example 'THW4LBiJuwPZ1E4LakyhKLUPP1mMTxqigZ'
+   */
+  toAddress: string;
+  /**
+   * @description Owner address
+   * @example 'TLPh66vQ2QMb64rG3WEBV5qnAhefh2kcdw'
+   */
+  ownerAddress: string;
+  /**
+   * @description Tx timestamp
+   * @example 1710332385000
+   */
+  timestamp: number;
+  /**
+   * @description Tx risk status
+   * @example false
+   */
+  riskTransaction: boolean;
+  /**
+   * @description Block id
+   * @example 59866678
+   */
+  block: number;
+  /**
+   * @description Hash
+   * @example '7149fb4f3b19115e21af263dfcea210f89f077d9909f5321ecb9d536f2fa61eb'
+   */
+  hash: string;
+  /**
+   * @description Contract data
+   */
+  contractData: TronScanContractData;
+  /**
+   * @description Does the tx confirmed
+   * @example true
+   */
+  confirmed: boolean;
+
+  /**
+   * @description Contract map
+   */
+  contract_map: TronScanContractMap;
+  /**
+   * @description Contract info
+   */
+  contractInfo?: {
+    [key: string]: TronScanContractInfo;
+  };
+  /**
+   * @description Cheat status
+   * @example 0
+   */
+  cheat_status: number;
+  /**
+   * @description Some info ???
+   * @example {}
+   */
+  info: {};
+  /**
+   * @description Normal address info
+   */
+  normalAddressInfo?: {
+    [key: string]: TronScanRiskInfo;
+  };
+  /**
+   * @description Tx cost
+   */
+  cost: TronScanCost;
+  /**
+   * @description Not level
+   * @example 1
+   */
+  noteLevel: number;
+  /**
+   * @description Address tag
+   */
+  addressTag: TronScanAddressTag;
+  /**
+   * @description ???
+   * @example []
+   */
+  signature_addresses: any[];
+  /**
+   * @description Confirm node list
+   */
+  srConfirmList: TronScanConfirmNodeItem[];
+  /**
+   * @description Internal txs ???
+   * @example {}
+   */
+  internal_transactions: {};
 }
 
 // ----------------------------------------------------------------------------------------------------
