@@ -1152,7 +1152,7 @@ export interface TronScanTrxTransfersResponse extends TronScanTransfersCommonRes
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetTrc10TransfersOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
-  address: string;
+  address?: string;
   tokens?: string;
   sort?: TronScanSort;
   // filterTokenValue=0 +
@@ -1165,7 +1165,7 @@ export interface TronScanTrc10TransfersResponse extends TronScanTransfersCommonR
 // ----------------------------------------------------------------------------------------------------
 
 export interface TronScanGetTrc20TransfersOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
-  relatedAddress: string;
+  relatedAddress?: string;
   contract_address?: string;
   // filterTokenValue=0 +
 }
