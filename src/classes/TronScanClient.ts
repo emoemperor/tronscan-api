@@ -15,13 +15,15 @@ import {
   TronScanGetTrc20Trc721TransferListOptions,
   TronScanGetTrxTransfersOptions,
   TronScanGetTrxTrc10TransferListOptions,
+  TronScanGetTxDetailByHashOptions,
   TronScanTokenListResponse,
   TronScanTransactionsListResponse,
   TronScanTrc10TransfersResponse,
   TronScanTrc20TransfersResponse,
   TronScanTrc20Trc721TransfersResponse,
   TronScanTrxTransfersResponse,
-  TronScanTrxTrc10TransfersResponse
+  TronScanTrxTrc10TransfersResponse,
+  TronScanTxDetailByHashResponse
 } from '../types/tronscan';
 
 export interface TronScanClientOptions {
@@ -68,7 +70,10 @@ export class TronScanClient {
     return response.data;
   }
 
-  // public async getTransactionDetailByHash() {}
+  public async getTransactionDetailByHash(params: TronScanGetTxDetailByHashOptions): Promise<TronScanTxDetailByHashResponse> {
+    const response = await this.transport.get<TronScanTxDetailByHashResponse>('transaction-info', params);
+    return response.data;
+  }
 
   public async getTrxTrc10TransferList(
     params: TronScanGetTrxTrc10TransferListOptions

@@ -92,6 +92,74 @@
 
 // ----------------------------------------------------------------------------------------------------
 
+export interface TronScanTrc20TransferInfo {
+  /**
+   * @description Icon url
+   * @example 'https://static.tronscan.org/production/logo/usdtlogo.png'
+   */
+  icon_url: string;
+  /**
+   * @description Token symbol
+   * @example 'USDT'
+   */
+  symbol: string;
+  /**
+   * @description Token level
+   * @example '2'
+   */
+  level: string;
+  /**
+   * @description To address
+   * @example 'TCz47XgC9TjCeF4UzfB6qZbM9LTF9s1tG7'
+   */
+  to_address: string;
+  /**
+   * @description Token contract address
+   * @example 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'
+   */
+  contract_address: string;
+  /**
+   * @description Transfer type
+   * @example 'Transfer'
+   */
+  type: string;
+  /**
+   * @description Token decimals count
+   * @example 6
+   */
+  decimals: number;
+  /**
+   * @description Token name
+   * @example 'Tether USD'
+   */
+  name: string;
+  /**
+   * @description Token VIP status
+   * @example true
+   */
+  vip: boolean;
+  /**
+   * @description Token type
+   * @example 'trc20'
+   */
+  tokenType: string;
+  /**
+   * @description From address
+   * @example 'TEqPbhNc57UUEBFTm7h8MighHRqvbCJckd'
+   */
+  from_address: string;
+  /**
+   * @description Amount
+   * @example '9500000000'
+   */
+  amount_str: string;
+  /**
+   * @description Status
+   * @example 0
+   */
+  status: number;
+}
+
 export interface TronScanConfirmNodeItem {
   /**
    * @description Node address
@@ -653,10 +721,21 @@ interface TronScanCost {
    * @example 420
    */
   energy_fee_cost?: number;
-
-  multi_sign_fee?: 0;
-  memoFee?: 0;
-  account_create_fee?: 0;
+  /**
+   * @description Multi sign fee
+   * @example 0
+   */
+  multi_sign_fee?: number;
+  /**
+   * @description Memo fee
+   * @example 0
+   */
+  memoFee?: number;
+  /**
+   * @description Account create fee
+   * @example 0
+   */
+  account_create_fee?: number;
 }
 
 interface TronScanTokenInfoCommon {
@@ -1643,6 +1722,44 @@ export interface TronScanTxDetailByHashResponse {
    * @example {}
    */
   internal_transactions: {};
+
+  /**
+   * @description Event count
+   * @example 1
+   */
+  event_count?: number;
+  /**
+   * @description Project name
+   * @example ''
+   */
+  project?: string;
+  /**
+   * @description Transfers info array
+   */
+  trc20TransferInfo?: TronScanTrc20TransferInfo[];
+  /**
+   * @description Transfers all list
+   */
+  transfersAllList?: TronScanTrc20TransferInfo[];
+  /**
+   * @description Trigger contract type
+   * @example 500
+   */
+  triggerContractType?: number;
+  /**
+   * @description Fee limit
+   * @example 50000000
+   */
+  fee_limit?: number;
+  /**
+   * @description Token transfer info
+   */
+  tokenTransferInfo?: TronScanTrc20TransferInfo;
+  /**
+   * @description Contract type
+   * @example 'trc20'
+   */
+  contract_type?: string;
 }
 
 // ----------------------------------------------------------------------------------------------------
