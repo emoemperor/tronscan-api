@@ -58,6 +58,12 @@ const response = await tronScanClient.getTransactionsList({
 });
 const txs = response.data;
 
+// Get transaction detail information by transaction hash
+const [tx] = txs;
+const txDetails = await tronScanClient.getTransactionDetailByHash({
+  hash: tx.hash
+});
+
 // Get trx&trc10 transfer list:
 const response = await tronScanClient.getTrxTrc10TransferList({
   address: ADDRESS,
