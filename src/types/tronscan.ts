@@ -483,43 +483,43 @@ export interface TronScanBlockSimple {
 // ----------------------------------------------------------------------------------------------------
 
 export enum TronScanTokenShow {
-  OnlyWhitelist = '0',
-  All = '1',
-  ExcludeBlacklist = '2'
+  OnlyWhitelist = "0",
+  All = "1",
+  ExcludeBlacklist = "2",
 }
 
 export enum TronScanTokenVerifier {
-  All = 'all',
-  WithoutAuto = ''
+  All = "all",
+  WithoutAuto = "",
 }
 
 export enum TronScanSort {
-  TimestampDesc = '-timestamp',
-  TimestampAsc = '+timestamp',
-  BalanceDesc = '-balance',
-  BalanceAsc = '+balance'
+  TimestampDesc = "-timestamp",
+  TimestampAsc = "+timestamp",
+  BalanceDesc = "-balance",
+  BalanceAsc = "+balance",
 }
 
 export enum TronScanOrder {
-  Asc = 'asc',
-  Desc = 'desc'
+  Asc = "asc",
+  Desc = "desc",
 }
 
 export enum TronScanTokenFilter {
-  All = 'all',
-  Trc10 = 'trc10',
-  Trc20 = 'trc20',
-  Trc721 = 'trc721',
-  Trc1155 = 'trc1155',
-  Top = 'top'
+  All = "all",
+  Trc10 = "trc10",
+  Trc20 = "trc20",
+  Trc721 = "trc721",
+  Trc1155 = "trc1155",
+  Top = "top",
 }
 
 export enum TronScanTokenSort {
-  Marketcap = 'marketcap',
-  PriceInTrx = 'priceInTrx',
-  Gain = 'gain',
-  Volume24hInTrx = 'volume24hInTrx',
-  HolderCount = 'holderCount'
+  Marketcap = "marketcap",
+  PriceInTrx = "priceInTrx",
+  Gain = "gain",
+  Volume24hInTrx = "volume24hInTrx",
+  HolderCount = "holderCount",
 }
 
 export interface TronScanPaginationOptions {
@@ -1148,7 +1148,8 @@ export interface TronScanAccountShortInfo {
 
 // ----------------------------------------------------------------------------------------------------
 
-export interface TronScanGetAccountListOptions extends TronScanPaginationOptions {
+export interface TronScanGetAccountListOptions
+  extends TronScanPaginationOptions {
   sort?: TronScanSort;
 }
 
@@ -1192,7 +1193,9 @@ export interface TronScanAccountListResponse {
 
 // ----------------------------------------------------------------------------------------------------
 
-export interface TronScanGetTransactionsListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
+export interface TronScanGetTransactionsListOptions
+  extends TronScanPaginationOptions,
+    TronScanTimestampOptions {
   /**
    * @description Wallet address
    * @example 'TTMp6WRZhKe8TZiFHt3fe97WuRzg4Swa6w'
@@ -1200,13 +1203,16 @@ export interface TronScanGetTransactionsListOptions extends TronScanPaginationOp
   address: string;
 }
 
-export interface TronScanTransactionsListResponse extends TronScanTransfersCommonResponse {
+export interface TronScanTransactionsListResponse
+  extends TronScanTransfersCommonResponse {
   data: TronScanTxNative[];
 }
 
 // ----------------------------------------------------------------------------------------------------
 
-export interface TronScanGetTrxTrc10TransferListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
+export interface TronScanGetTrxTrc10TransferListOptions
+  extends TronScanPaginationOptions,
+    TronScanTimestampOptions {
   /**
    * @description Address , like contract address
    * @example 'TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7'
@@ -1219,7 +1225,8 @@ export interface TronScanGetTrxTrc10TransferListOptions extends TronScanPaginati
   block?: number;
 }
 
-export interface TronScanTrxTrc10TransfersResponse extends TronScanTransfersCommonResponse {
+export interface TronScanTrxTrc10TransfersResponse
+  extends TronScanTransfersCommonResponse {
   /**
    * @description Tx array
    */
@@ -1228,7 +1235,9 @@ export interface TronScanTrxTrc10TransfersResponse extends TronScanTransfersComm
 
 // ----------------------------------------------------------------------------------------------------
 
-export interface TronScanGetTrc20Trc721TransferListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
+export interface TronScanGetTrc20Trc721TransferListOptions
+  extends TronScanPaginationOptions,
+    TronScanTimestampOptions {
   /**
    * @description Contract address
    * @example 'TMwFHYXLJaRUPeW6421aqXL4ZEzPRFGkGT'
@@ -1246,7 +1255,8 @@ export interface TronScanGetTrc20Trc721TransferListOptions extends TronScanPagin
   relatedAddress?: string;
 }
 
-export interface TronScanTrc20Trc721TransfersResponse extends TronScanTransfersCommonResponse {
+export interface TronScanTrc20Trc721TransfersResponse
+  extends TronScanTransfersCommonResponse {
   token_transfers: TronScanTxToken[];
 }
 
@@ -1264,43 +1274,53 @@ export interface TronScanGetTokenListOptions extends TronScanPaginationOptions {
   sortBy?: number;
 }
 
-export interface TronScanTokenListResponse extends TronScanTransfersCommonResponse {
+export interface TronScanTokenListResponse
+  extends TronScanTransfersCommonResponse {
   data: TronScanTokenBalanceInfo[];
 }
 
 // ----------------------------------------------------------------------------------------------------
 
-export interface TronScanGetTrxTransfersOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
+export interface TronScanGetTrxTransfersOptions
+  extends TronScanPaginationOptions,
+    TronScanTimestampOptions {
   address: string;
   sort?: TronScanSort;
 }
 
-export interface TronScanTrxTransfersResponse extends TronScanTransfersCommonResponse {
+export interface TronScanTrxTransfersResponse
+  extends TronScanTransfersCommonResponse {
   data: TronScanTxSimple[];
 }
 
 // ----------------------------------------------------------------------------------------------------
 
-export interface TronScanGetTrc10TransfersOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
+export interface TronScanGetTrc10TransfersOptions
+  extends TronScanPaginationOptions,
+    TronScanTimestampOptions {
   address?: string;
   tokens?: string;
   sort?: TronScanSort;
   // filterTokenValue=0 +
 }
 
-export interface TronScanTrc10TransfersResponse extends TronScanTransfersCommonResponse {
+export interface TronScanTrc10TransfersResponse
+  extends TronScanTransfersCommonResponse {
   data: TronScanTxSimple[];
 }
 
 // ----------------------------------------------------------------------------------------------------
 
-export interface TronScanGetTrc20TransfersOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
+export interface TronScanGetTrc20TransfersOptions
+  extends TronScanPaginationOptions,
+    TronScanTimestampOptions {
   relatedAddress?: string;
   contract_address?: string;
   // filterTokenValue=0 +
 }
 
-export interface TronScanTrc20TransfersResponse extends TronScanTransfersCommonResponse {
+export interface TronScanTrc20TransfersResponse
+  extends TronScanTransfersCommonResponse {
   token_transfers: TronScanTxToken[];
 }
 
@@ -1578,14 +1598,17 @@ export interface TronScanAccountDetailInformationResponse {
 
 // ----------------------------------------------------------------------------------------------------
 
-export interface TronScanGetBlocksListOptions extends TronScanPaginationOptions, TronScanTimestampOptions {
+export interface TronScanGetBlocksListOptions
+  extends TronScanPaginationOptions,
+    TronScanTimestampOptions {
   /**
    * @description Super representative address
    */
   producer?: string;
 }
 
-export interface TronScanBlockListResponse extends TronScanTransfersCommonResponse {
+export interface TronScanBlockListResponse
+  extends TronScanTransfersCommonResponse {
   data: TronScanBlockSimple[];
 }
 
@@ -1763,3 +1786,269 @@ export interface TronScanTxDetailByHashResponse {
 }
 
 // ----------------------------------------------------------------------------------------------------
+
+export interface TronScanCheckAddressSecurityOptions {
+  /**
+   * @description Account address
+   * @example 'TSTVYwFDp7SBfZk7Hrz3tucwQVASyJdwC7'
+   */
+  address: string;
+}
+
+export interface TronScanCheckAddressSecurityResponse {
+  /**
+   * @description Is black list
+   * @example false
+   */
+  is_black_list: boolean;
+
+  /**
+   * @description Has fraud transaction
+   * @example false
+   */
+  has_fraud_transaction: boolean;
+
+  /**
+   * @description Fraud token creator
+   * @example false
+   */
+  fraud_token_creator: boolean;
+
+  /**
+   * @description Send ad by memo
+   * @example false
+   */
+  send_ad_by_memo: boolean;
+}
+
+export interface TronScanCheckTokenSecurityOptions {
+  /**
+   * @description Token address
+   * @example 'TSTVYwFDp7SBfZk7Hrz3tucwQVASyJdwC7'
+   */
+  address: string;
+}
+
+export interface TronScanCheckTokenSecurityResponse {
+  /**
+   * @description token is issued by a well-known institution or not（it is in vip token list or not）
+   * @example true
+   */
+  is_vip: boolean;
+  /**
+   * @description token's contract has blacklist or not (0-not recognized, 1-has black list, 2-do not have backlist)
+   * @example 2
+   */
+  black_list_type: number;
+  /**
+   * @description can increase token's total supply  (0-not recognized, 1-increase allowed, 2-increase not allowed)
+   * @example 1
+   */
+  increase_total_supply: number;
+  /**
+   * @description token level. 0: Unknown. 1: Neutral. 2: OK. 3: Suspicious. 4: Unsafe
+   * @example '2'
+   */
+  token_level: string;
+
+  /**
+   * @description name or symbol contains url or not
+   * @example false
+   */
+  has_url: boolean;
+  /**
+   * @description is token on sun.io
+   * @example true
+   */
+  swap_token: boolean;
+  /**
+   * @description token liquidity，unit is dollor
+   * @example '46004551.623228'
+   */
+  sun_liquidity: string;
+  /**
+   * @description token's contract is open source or not
+   * @example false
+   */
+  open_source: boolean;
+  /**
+   * @description token's contract has proxy contract or not
+   * @example false
+   */
+  is_proxy: boolean;
+}
+
+export interface TronScanCheckTransactionSecurityOptions {
+  /**
+   * @description Transaction hashes
+   * @example ['6e46100d26498887d23e8184399d899823936269354e6ca760c44870745cf83e']
+   */
+  hashes: string[];
+}
+
+export interface TronScanCheckTransactionSecurityResponse {
+  [key: string]: TronScanCheckTransactionRiskInfo;
+}
+
+export interface TronScanCheckTransactionRiskInfo {
+  /**
+   * @description Whether it is a risk token
+   * @example false
+   */
+  riskToken: boolean;
+  /**
+   * @description Whether the transfer amount is 0
+   * @example false
+   */
+  zeroTransfer: boolean;
+  /**
+   * @description Whether it is a risk address
+   * @example false
+   */
+  riskAddress: boolean;
+  /**
+   * @description Whether it is an attack from an address with the same ending characters as that of the user's address
+   * @example true
+   */
+  sameTailAttach: boolean;
+  /**
+   * @description Whether it is a risk transaction
+   * @example true
+   */
+  riskTransaction: boolean;
+}
+
+export interface TronScanCheckMultiSignSecurityOptions {
+  /**
+   * @description Account address
+   * @example 'TSTVYwFDp7SBfZk7Hrz3tucwQVASyJdwC7'
+   */
+  address: string;
+}
+
+export interface TronScanCheckMultiSignSecurityResponse {
+  /**
+   * @description Account address
+   * @example 'TSTVYwFDp7SBfZk7Hrz3tucwQVASyJdwC7'
+   */
+  address: string;
+  /**
+   * @description Account is multi sign
+   * @example true
+   */
+  multiSign: boolean;
+  /**
+   * @description Owner permission
+   */
+  ownerPermission: TronScanPermission;
+  /**
+   * @description Active permissions list
+   */
+  activePermissions: TronScanPermission[];
+  /**
+   * @description Witness permission address
+   */
+  multiSignWitnessPermissionAddress: string[];
+}
+
+export interface TronScanCheckAccountAuthoritySecurityOptions {
+  /**
+   * @description Account address
+   * @example 'TSTVYwFDp7SBfZk7Hrz3tucwQVASyJdwC7'
+   */
+  address: string;
+}
+
+export interface TronScanCheckAccountAuthoritySecurityResponse {
+  /**
+   * @description Number of Authorized Items
+   * @example 1
+   */
+  approveProjectCount: number;
+  /**
+   * @description Number of Authorized Tokens
+   * @example 1
+   */
+  approveTokenCount: number;
+  /**
+   * @description Number of Authorized Address
+   * @example 1
+   */
+  approveAddressCount: number;
+  /**
+   * @description Number of authorized risk contracts
+   * @example 0
+   */
+  approveRiskContractCount: number;
+  /**
+   * @description Number of authorized risk accounts
+   * @example 1
+   */
+  approveRiskAccountCount: number;
+  /**
+   * @description Number of authorized risk addresses(approveRiskContractCount + approveRiskAccountCount)
+   * @example 1
+   */
+  approveRiskAddressCount: number;
+  /**
+   * @description Risk Authorization List
+   */
+  riskApprove: TronScanRiskApprove[];
+}
+
+export interface TronScanRiskApprove {
+  /**
+   * @description Amount
+   * @example '1'
+   */
+  amount: string;
+  /**
+   * @description Unlimited status
+   * @example false
+   */
+  unlimited: boolean;
+  /**
+   * @description To address
+   * @example 'TKNAHSPfXULFvhYz5YdYcXYitE9xhSkbyY'
+   */
+  to_address: string;
+  /**
+   * @description Contract address
+   * @example 'TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf'
+   */
+  contract_address: string;
+  /**
+   * @description From address
+   * @example 'THSiB9MT2sCnAUgnYs9euMCY9aiZCD4HB5'
+   */
+  from_address: string;
+  /**
+   * @description Token info
+   */
+  tokenInfo: TronScanTokenInfo;
+  /**
+   * @description Project
+   */
+  project: {
+    /**
+     * @description Project id
+     * @example 'TKNAHSPfXULFvhYz5YdYcXYitE9xhSkbyY'
+     */
+    id: string;
+  };
+  /**
+   * @description Project id
+   * @example 'TKNAHSPfXULFvhYz5YdYcXYitE9xhSkbyY'
+   */
+  project_id: string;
+  /**
+   * @description Project sort
+   * @example 2147483647
+   */
+  project_sort: number;
+  /**
+   * @description Operate time
+   * @example 1689221733000
+   */
+  operate_time: number;
+}
